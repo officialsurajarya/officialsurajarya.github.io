@@ -261,16 +261,22 @@ section{
 
     .main-container .image{
         z-index: -1;
-        width: 50%;
-        height: 60%;
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media (max-width:650px){
+    .main-container .image{
+        width: 200px;
+        height: 200px;
     }
 }
 
 @media (max-width:440px){
     .main-container .image{
-        width: 50%;
-        height: 60%;
-        margin-bottom: 0px;
+        width: 150px;
+        height: 150px;
     }
 
     .main-container .content{
