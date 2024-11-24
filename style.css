@@ -182,6 +182,14 @@ section{
     margin: 10px 0;
 }
 
+.table tr th{
+    padding: 5px;
+}
+
+.table tr td{
+    padding-top: 5px;
+}
+
 .social-links i{
     display: inline-flex;
     justify-content: center;
