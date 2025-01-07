@@ -13,7 +13,11 @@
     --bg-color: #080808;
     --second-bg-color: #131313;
     --text-color: #fff;
-    --main-color: #0096ff;
+    --main-color: #12f7ff;
+    --big-font:2.5rem;
+    --normal-font:2rem;
+    --h2-font:3rem;
+    --neon-box-shadow: 0 0 .5rem #12f7ff;
 }
 
 html {
@@ -104,17 +108,17 @@ span {
     color: var(--main-color);
 }
 
-.home-content h3 {
-    margin-bottom: 3rem;
-    margin-top: 1rem;
-    font-size: 4rem;
-}
-
 .home-content h1 {
-    font-size: 6.5rem;
+    font-size: 7rem;
     font-weight: 700;
     margin-top: 1.5rem;
     line-height: 1;
+}
+
+.home-content h3 {
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    font-size: 3rem;
 }
 
 .home-img {
@@ -124,7 +128,7 @@ span {
 .home-img img {
     position: relative;
     top: 3rem;
-    width: 28vw;
+    width: 30vw;
     border-radius:50%;
     box-shadow: 0 0 40px var(--main-color);
     transition: 0.3s ease-in-out;
@@ -137,7 +141,7 @@ span {
 }
 
 .home-content p {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
     line-height: 1.8;
     max-width: 1000px;
@@ -290,7 +294,287 @@ span {
     }
 }
 
-/* Education Section */
+/* About Section */
+
+section {
+    min-height: 100vh;
+    padding: 10rem 12% 10rem;
+}
+
+.about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    background: var(--second-bg-color);
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.about-content h1 {
+    font-size: 6rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    line-height: 1;
+}
+
+.about-content h3 {
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    font-size: 3rem;
+}
+
+.about-img {
+    border-radius: 50%;
+}
+
+.about-img img {
+    position: relative;
+    top: 3rem;
+    width: 28vw;
+    border-radius:50%;
+    box-shadow: 0 0 40px var(--main-color);
+    transition: 0.3s ease-in-out;
+}
+
+.about-img img:hover {
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 55px var(--main-color);
+}
+
+.about-content p {
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 1000px;
+}
+
+.social-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.5rem;
+    height: 4.5rem;
+    background: transparent;
+    border: 2px solid var(--main-color);
+    font-size:2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3 ease-in-out;
+}
+
+.social-icons a:hover {
+    color: var(--text-color);
+    transform: scale(1.3)translateY(-5px);
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+    border-radius:4rem;
+    font-size: 1.6rem;
+    color: #131313;
+    behavior: 2px solid transparent;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.3 ease-in-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px var(--main-color);
+}
+
+.btn-group {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.btn-group a:nth-of-type(2) {
+    background-color: #131313;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 25px transparent;
+}
+
+.btn-group a:nth-of-type(2):hover {
+    box-shadow: 0 0 25px var(--main-color);
+    background-color: var(--main-color);
+    color: #131313;
+}
+
+    /* Skills Section --------------------------------------------- */
+.skills{
+    background-color: var(--bg-color);
+}
+
+.main-text{
+    width: 100%;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.main-text span{
+    font-size: 2.5rem;
+    color: wheat;
+}
+
+.main-text h2{
+    margin-top: 1rem;
+    font-weight: 700;
+    font-size: 6rem;
+    color: var(--main-color);
+}
+
+.skill-main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50px;
+}
+
+.skill-bar{
+    margin-bottom: 2.3rem;
+}
+
+.skill-main h3{
+    margin-bottom: 2rem;
+    font-size: 4rem;
+    text-align: center;
+}
+
+.skill-left .skill-bar .info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.skill-left .skill-bar .bar{
+    width: 100%;
+    height: 10px;
+    background-color: var(--text-color);
+    border-radius: 25px;
+    margin-top: 10px;
+    position: relative;
+}
+
+
+.skill-bar .info p{
+    font-size: 2rem;
+}
+
+.skill-bar .bar span{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    background-color: var(--main-color);
+    border-radius: 25px;
+    box-shadow: var(--neon-box-shadow);
+}
+
+.skill-bar .bar .python{
+    width: 64%;
+    animation: python 2s;
+}
+
+.skill-bar .bar .java{
+    width: 45%;
+    animation: java 3s;
+}
+
+.skill-bar .bar .html{
+    width: 82%;
+    animation: html 3s;
+}
+
+.skill-bar .bar .css{
+    width: 53%;
+    animation: css 4s;
+}
+
+.skill-bar .bar .js{
+    width: 25%;
+    animation: js 4s;
+}
+
+
+/* Right */
+
+.professional{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.box{
+    margin: 10px 0;
+    flex: 1 1 15rem;
+    position: relative;
+}
+
+.box .text{
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+}
+
+.box .text big{
+    color: white;
+    font: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box .text small{
+    display: block;
+    font-weight: 600;
+}
+
+.circle{
+    width: 100%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle .points{
+    width: 2px;
+    height: 10px;
+    background-color: var(--bg-color);
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i)*var(--rot))) translateY(-45px);
+    
+}
+
+.points.marked{
+    animation: glow 0.4s linear forwards;
+        animation-delay: calc(var(--i)*0.03s);
+}
+
+    /* Education Section -------------------------------------*/
 
 .heading {
     font-size: 8rem;
@@ -390,3 +674,78 @@ span {
     font-weight: 300;
     line-height: 22px;
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Skills --------------------------------------------*/
+
+@keyframes python {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 64%;
+    }
+}
+
+@keyframes java {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 45%;
+    }
+}
+
+@keyframes html {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 82%;
+    }
+}
+
+@keyframes css {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 53%;
+    }
+}
+
+@keyframes js {
+    0%{
+        width: 0%;
+    }
+
+    100%{
+        width: 25%;
+    }
+}
+
+@keyframes glow {
+    0%{
+        background: var(--bg-color);
+        box-shadow: none;
+    }
+
+    100%{
+        background: var(--main-color);
+        box-shadow: var(--neon-box-shadow);
+    }
+}
+
