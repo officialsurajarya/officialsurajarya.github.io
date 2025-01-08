@@ -842,6 +842,18 @@ input[type=number] {
     color: #fff;
 }
 
+/* Scrollbar Design  */
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+    width: 50px;
+    border-radius: 50px;
+}
+
 
 /* Skills --------------------------------------------*/
 
