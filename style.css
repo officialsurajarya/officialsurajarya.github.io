@@ -77,7 +77,13 @@ body {
     border-bottom: 3px solid var(--main-color);
 }
 
-/* Home Section */
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+/* Home Section -----------------------------------*/
 
 section {
     min-height: 100vh;
@@ -88,7 +94,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15rem;
+    gap: 10rem;
 }
 
 .home-content {
@@ -145,6 +151,7 @@ span {
     font-weight: 500;
     line-height: 1.8;
     max-width: 1000px;
+    text-align: justify;
 }
 
 .social-icons a {
@@ -246,22 +253,18 @@ span {
     20% {
         content: "Developer";
     }
-
     21%,
     40% {
         content: "Youtuber";
     }
-
     41%,
     60% {
         content: "Designer";
     }
-
     61%,
     80% {
         content: "Developer";
     }
-
     81%,
     100% {
         content: "Content Creator";
@@ -280,7 +283,6 @@ span {
     95% {
         width: 0;
     }
-
     5%,
     20%,
     25%,
@@ -305,7 +307,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15rem;
+    gap: 10rem;
     background: var(--second-bg-color);
 }
 
@@ -433,13 +435,6 @@ section {
 .main-text span{
     font-size: 2.5rem;
     color: wheat;
-}
-
-.main-text h2{
-    margin-top: 1rem;
-    font-weight: 700;
-    font-size: 6rem;
-    color: var(--main-color);
 }
 
 .skill-main{
@@ -696,23 +691,19 @@ section {
 }
 
 .service-box {
-    background-color: var(--second-bg-color);
-    color: white;
+    background-color: var(--main-color);
+    color: black;
     height: 300px;
-    border: 3px solid #aaa;
     border-radius: 3rem;
     cursor: pointer;
     transition: 0.3s ease-in-out;
-    overflow: hidden;
-
 }
 
 .service-box:hover {
     background-color: #fff;
     color: black;
     border: 5px solid var(--main-color);
-    transform: scale(1.03);
-    box-shadow: 0 0 25px var(--main-color);
+    transform: scale(1.02);
 }
 
 .service-box .service-info{
@@ -727,9 +718,7 @@ section {
 .service-info h4 {
     font-size: 3.2rem;
     font-weight: 800;
-    line-height: 2;
-    padding-bottom: 1.2rem;
-    color: var(--main-color);
+    padding-bottom: 1rem;
 }
 
 .service-info p {
@@ -794,8 +783,8 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number] {
-  -moz-appearance: textfield;
-}
+    -moz-appearance: textfield;
+  }
 
 
 /* Footer Section ------------------------------*/
@@ -854,6 +843,175 @@ input[type=number] {
     border-radius: 50px;
 }
 
+/* Responsive Design----------------------------- */
+
+@media (max-width:1284px) {
+    html {
+        font-size: 55%;
+    }
+
+    .services-container {
+        padding-bottom: 7rem;
+        grid-template-columns: repeat(2,1fr);
+        margin: 0 5rem;
+    }
+}
+
+@media (max-width:991px) {
+    header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .timeline-items::before {
+        left: 7px;
+    }
+
+    .timeline-item:nth-child(odd) {
+        padding-right: 0;
+        text-align: left;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 37px;
+    }
+
+    .timeline-dot {
+        left: 0;
+    }
+
+    .services {
+        padding-bottom: 7rem;
+    }
+
+    .textimonials .wrapper {
+        grid-template-columns: repeat(1,1fr);
+    }
+
+    .contact form {
+        flex-direction: column;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+
+@media (max-width:894px) {
+    #menu-icon {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 50%;
+        padding: 1rem 3%;
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(20px); 
+        border-bottom-left-radius: 2rem;
+        border-left: 2px solid var(--main-color);
+        border-bottom: 2px solid var(--main-color);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 2.5rem 0;
+        color: #fff;
+    }
+
+    .home {
+        flex-direction: column;
+        margin: 5rem 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 6rem;
+        margin-top: 1rem;
+    }
+
+    .home-content p{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .home-img img {
+        width: 45vh;
+    }
+
+    .about {
+        flex-direction: column-reverse;
+    }
+
+    .about-content h1 {
+        font-size: 6rem;
+        margin-top: 1rem;
+    }
+
+    .about-content p{
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .about-img img {
+        width: 45vh;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+
+    .services-container {
+        grid-template-columns: repeat(1,1fr);
+    }
+}
+
+@media (max-width:425px) {
+    .home-content h3 {
+        font-size: 2.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+        margin-top: 1rem;
+    }
+
+    .about-content h1 {
+        font-size: 5rem;
+        margin-top: 1rem;
+    }
+
+    .heading {
+        font-size: 4rem;
+        text-align: center;
+        margin: 2rem 0;
+    }
+
+    .about-img img {
+        width: 30vh;
+    }
+
+    .home-img img {
+        width: 30vh;
+    }
+}
+
 
 /* Skills --------------------------------------------*/
 
@@ -861,7 +1019,6 @@ input[type=number] {
     0%{
         width: 0%;
     }
-
     100%{
         width: 64%;
     }
@@ -871,7 +1028,6 @@ input[type=number] {
     0%{
         width: 0%;
     }
-
     100%{
         width: 45%;
     }
@@ -881,7 +1037,6 @@ input[type=number] {
     0%{
         width: 0%;
     }
-
     100%{
         width: 82%;
     }
@@ -891,7 +1046,6 @@ input[type=number] {
     0%{
         width: 0%;
     }
-
     100%{
         width: 53%;
     }
@@ -901,7 +1055,6 @@ input[type=number] {
     0%{
         width: 0%;
     }
-
     100%{
         width: 25%;
     }
@@ -912,10 +1065,8 @@ input[type=number] {
         background: var(--bg-color);
         box-shadow: none;
     }
-
     100%{
         background: var(--main-color);
         box-shadow: var(--neon-box-shadow);
     }
 }
-
