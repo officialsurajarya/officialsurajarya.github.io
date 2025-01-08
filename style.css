@@ -369,7 +369,7 @@ section {
     border-radius: 50%;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
-    transition: 0.3 ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .social-icons a:hover {
@@ -390,7 +390,7 @@ section {
     behavior: 2px solid transparent;
     letter-spacing: 0.1rem;
     font-weight: 600;
-    transition: 0.3 ease-in-out;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
 }
 
@@ -674,6 +674,79 @@ section {
     font-weight: 300;
     line-height: 22px;
 }
+
+/* Service section-------------------------------- */
+
+.services {
+    background-color: var(--bg-color);
+    color: #fff;
+}
+
+
+.services h2 {
+    margin-bottom: 5rem;
+    color: #fff;
+}
+
+.services-container{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 4rem;
+}
+
+.service-box {
+    background-color: var(--second-bg-color);
+    color: white;
+    height: 300px;
+    border: 3px solid #aaa;
+    border-radius: 3rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+
+}
+
+.service-box:hover {
+    background-color: #fff;
+    color: black;
+    border: 5px solid var(--main-color);
+    transform: scale(1.03);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.service-box .service-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    min-height: 200px;
+    justify-content: left;
+    padding: 5rem 5rem;
+}
+
+.service-info h4 {
+    font-size: 3.2rem;
+    font-weight: 800;
+    line-height: 2;
+    padding-bottom: 1.2rem;
+    color: var(--main-color);
+}
+
+.service-info p {
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-height: 100px;
+    line-height: 1.7;
+}
+
+
+/* Contact us Section--------------------------------- */
+
+
+
+
+
+
 
 
 
