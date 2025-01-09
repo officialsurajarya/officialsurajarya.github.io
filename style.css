@@ -828,6 +828,46 @@ input[type=number] {
     color: #fff;
 }
 
+/* Go to Top button----------------------------- */
+
+#button {
+    display: inline-block;
+    background-color: var(--main-color);
+    width: 50px;
+    height: 50px;
+    line-height:60px;
+    text-align: center;
+    align-items: center;
+    padding-top: 5px;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+    opacity: 0;
+    transform: scale(0.8);
+    z-index: 1000;
+    color: black;
+  }
+  
+  #button i{
+    font-size:32px;
+  }
+  
+  #button:hover {
+    color: var(--main-color);
+    background: black;
+    cursor: pointer;
+    transform: scale(1.05);
+    border: 3px solid var(--main-color);
+    box-shadow: 0 0 5px 2px var(--main-color);
+  }
+  
+  #button.show {
+    opacity: 1;
+    transform: scale(1);
+  }
+
 /* Scrollbar Design  */
 
 ::-webkit-scrollbar {
@@ -1094,41 +1134,3 @@ input[type=number] {
         box-shadow: var(--neon-box-shadow);
     }
 }
-
-#button {
-    display: inline-block;
-    background-color: var(--main-color);
-    width: 50px;
-    height: 50px;
-    line-height:60px;
-    text-align: center;
-    align-items: center;
-    padding-top: 5px;
-    border-radius: 4px;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    transition: background-color .3s, opacity .5s, visibility .5s;
-    opacity: 0;
-    transform: scale(0.8);
-    z-index: 1000;
-    color: black;
-  }
-  
-  #button i{
-    font-size:32px;
-  }
-  
-  #button:hover {
-    color: var(--main-color);
-    background: black;
-    cursor: pointer;
-    transform: scale(1.05);
-    border: 3px solid var(--main-color);
-    box-shadow: 0 0 5px 2px var(--main-color);
-  }
-  
-  #button.show {
-    opacity: 1;
-    transform: scale(1);
-  }
