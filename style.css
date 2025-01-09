@@ -432,11 +432,6 @@ section {
     margin-bottom: 3rem;
 }
 
-.main-text span{
-    font-size: 2.5rem;
-    color: wheat;
-}
-
 .skill-main{
     width: 100%;
     display: grid;
@@ -901,6 +896,12 @@ input[type=number] {
     }
 }
 
+@media (max-width:768px) {
+    .skill-main {
+        grid-template-columns: 1fr;
+        margin-bottom: 4rem;
+    }
+}
 
 @media (max-width:894px) {
     #menu-icon {
@@ -982,7 +983,7 @@ input[type=number] {
     }
 }
 
-@media (max-width:425px) {
+@media (max-width:430px) {
     .home-content h3 {
         font-size: 2.5rem;
     }
@@ -1010,6 +1011,27 @@ input[type=number] {
     .home-img img {
         width: 30vh;
     }
+
+    .skill-main h3{
+        font-size: 2.5rem;
+    }
+
+    .skill-bar .info p{
+        font-size: 1.5rem;
+    }
+
+    .box .text{
+    text-align: center;
+    color: #fff;
+    font-size: 2rem;
+    }
+
+    .box .text small{
+        display: block;
+        font-weight: 300;
+        font-size: 1.7;
+    }
+
 }
 
 
