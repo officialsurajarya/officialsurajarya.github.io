@@ -795,7 +795,7 @@ input[type=number] {
 
 .footer .social {
     text-align: center;
-    /* padding-bottom: 20px; */
+    /* padding-bottom: 20px; */ 
     color: var(--main-color);
 }
 
@@ -827,6 +827,30 @@ input[type=number] {
     font-size: 16px;
     color: #fff;
 }
+
+.viewcount table {
+    margin: auto; /* Center the table horizontally */
+    text-align: center; /* Center the content inside the table */
+    border: 2px solid var(--main-color);
+    border-radius: 10px;
+}
+
+.viewcount td {
+    padding: 1rem;
+}
+
+.viewcount td:nth-child(odd) {
+    border-right: 2px solid var(--main-color);
+}
+
+.viewcount img {
+    vertical-align: middle;
+} 
+
+.viewcount h4 {
+    font-size: 1.5rem;
+}
+
 
 /* Go to Top button----------------------------- */
 

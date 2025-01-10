@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="logo.png" type="image/icon type">
+    <link rel="icon" href="Assests/Icon.png" type="image/icon type">
     <title>Suraj Arya</title>
 </head>
 
@@ -35,7 +35,7 @@
 
     <section class="home" id="home">
         <div class="home-img">
-            <img src="logo.png" alt="logo">
+            <img src="Assests/Home-img.png" alt="Logo">
         </div>
 
         <div class="home-content">
@@ -51,7 +51,7 @@
             </div>
 
             <div class="btn-group">
-                <a href="Suraj Arya CV.pdf" class="btn">Download CV</a>
+                <a href="Assests/CV-Suraj-Arya.pdf" class="btn">Download CV</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
@@ -79,13 +79,13 @@
             </div>
 
             <div class="btn-group">
-                <a href="Suraj Arya CV.pdf" class="btn">Download CV</a>
+                <a href="Assests/CV-Suraj-Arya.pdf" class="btn">Download CV</a>
                 <a href="#contact" class="btn">Contact</a>
             </div>
         </div>
 
         <div class="about-img">
-            <img src="About Img.jpg" alt="logo">
+            <img src="Assests/About-Img.jpg" alt="logo">
         </div>
     </section>
 
@@ -277,20 +277,21 @@
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me</span></h2>
 
-        <form action="wait/wait.html">
+        <form action="https://api.web3forms.com/submit" method="POST">
             <div class="input-group">
                 <div class="input-box">
-                    <input type="text" placeholder="Full Name">
-                    <input type="email" placeholder="Email" disabled>
+                    <input type="hidden" name="access_key" value="7274fb69-f8a0-43ea-b3ee-50bd672e6676">
+                    <input type="text" name="Name" placeholder="Full Name">
+                    <input type="email" name="Email" placeholder="Email">
                 </div>
                 <div class="input-box">
-                    <input type="number" placeholder="Phone Number" disabled>
-                    <input type="text" placeholder="Subject" disabled>
+                    <input type="number" name="Phone Number" placeholder="Phone Number">
+                    <input type="text" name="Subject" placeholder="Subject">
                 </div>
             </div>
 
             <div class="input-group-2">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Your Message" disabled></textarea>
+                <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
                 <input type="submit" value="Send Message" class="btn">
             </div>
         </form>
@@ -306,6 +307,16 @@
             <a href="https://www.youtube.com/@officialsurajarya"><i class='bx bxl-youtube'></i></a>
             <a href="https://wa.me/8427714353"><i class='bx bxl-whatsapp'></i></a>
         </div>
+
+        <div class="viewcount">
+            <table>
+                <tr>  
+                    <td> <h4>You are Visitor</h4></td>
+                    <td><img src="https://profile-counter.glitch.me/Siteview/count.svg" alt="vistor count" height="20"></td>
+                </tr>
+            </table>            
+        </div>
+
         <p class="copyright">
             &copy; 2025 Suraj Arya | All Rights Reserved
         </p>
