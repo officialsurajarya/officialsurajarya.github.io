@@ -561,8 +561,8 @@ section {
 }
 
 .points.marked{
-    animation: glow 0.4s linear forwards;
-        animation-delay: calc(var(--i)*0.03s);
+    animation: glow .4s linear forwards;
+        animation-delay: calc(var(--i)*0.02s);
 }
 
     /* Education Section -------------------------------------*/
@@ -570,7 +570,7 @@ section {
 .heading {
     font-size: 8rem;
     text-align: center;
-    margin: 5rem 0;
+    margin: 5rem 0;    
 }
 
 .education {
@@ -700,6 +700,7 @@ section {
     color: black;
     border: 5px solid var(--main-color);
     transform: scale(1.02);
+
 }
 
 .service-box .service-info{
