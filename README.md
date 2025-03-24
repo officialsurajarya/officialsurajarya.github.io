@@ -23,4 +23,4 @@ Good to see you!
 
 ---
 
-## Visit Site : [Github](https://officialsurajarya.github.io/)  [Vercel](https://officialsurajarya.vercel.app/)    [Vercel](https://officialsurajarya.netlify.app/)
+## Visit Site : [Github](https://officialsurajarya.github.io/)  [Vercel](https://officialsurajarya.vercel.app/)    [Netlify](https://officialsurajarya.netlify.app/)
