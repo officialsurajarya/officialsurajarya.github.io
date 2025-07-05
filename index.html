@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Suraj Arya - Official Portfolio | Developer, Designer, Creator from Patna</title>
+    <title>Suraj Arya - Official Portfolio | Developer</title>
     <meta name="description"
         content="Welcome to the official website of Suraj Arya - CSE student, web developer, and content creator from Patna. Discover skills, projects, education, and services.">
     <meta name="keywords"
@@ -56,398 +56,327 @@
   </script>
 
     <!-- Styles & Libraries -->
-    <link rel="stylesheet" href="style.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
     <link rel="icon" href="Assests/Icon.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">s
 </head>
 
-
 <body>
-
-    <!-- Header Section -->
-
-    <header class="header" data-aos="fade-down">
-        <a href="#home" class="logo">Suraj
-            <span>Arya</span>
-        </a>
-
-        <i class='bx bx-menu' id="menu-icon" data-aos="fade-down"></i>
-
-        <nav class="navbar">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-
-    <!-- Home Section -->
-
-    <section class="home" id="home">
-        <div class="home-img" data-aos="fade-down">
-            <img src="Assests/Home-img.png" alt="Logo">
-        </div>
-
-        <div class="home-content" data-aos="fade-up">
-            <h1>Hello, I am <span>Suraj</span></h1>
-            <h3 class="text-animation">I'm a <span> </span></h3>
-            <p>
-                I'm <strong>Suraj Arya</strong>, a passionate tech enthusiast from <strong>Patna</strong>, currently
-                pursuing a diploma in Computer Science. This is my <strong>official website</strong> where I showcase my
-                skills in development, design, and more.
-            </p>
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loader"></div>
+    </div>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
 
 
-            <div class="social-icons">
-                <a href="https://github.com/officialsurajarya" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.linkedin.com/in/suraj-arya/?originalSubdomain=in" target="_blank"><i
-                        class='bx bxl-linkedin-square'></i></a>
-                <a href="https://www.instagram.com/officialsurajarya/" target="_blank"><i
-                        class='bx bxl-instagram-alt'></i></i></a>
-                <a href="https://www.youtube.com/@officialsurajarya" target="_blank"><i class='bx bxl-youtube'></i></a>
-            </div>
 
-            <div class="btn-group">
-                <a href="Assests/CV-Suraj-Arya.pdf" class="btn" target="_blank">Download CV</a>
-                <a href="#contact" class="btn">Contact</a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">Suraj<span style="color: var(--secondary-color);">Arya</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <div class="hero-content">
+                        <h1>Hello, I'm <span style="color: var(--secondary-color);">Suraj</span></h1>
+                        <div class="typing-text" id="typingText"></div>
+                        <p class="lead mb-4">
+                            I'm Suraj Arya, a passionate tech enthusiast from Patna, currently pursuing a diploma in
+                            Computer Science. This is my official website where I showcase my skills in development,
+                            design, and more.
+                        </p>
+                        <div class="social-icons">
+                            <a href="https://github.com/officialsurajarya" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/suraj-arya/" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.instagram.com/officialsurajarya/" target="_blank"
+                                aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@officialsurajarya" target="_blank" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                        <div class="hero-buttons">
+                            <a href="/assests/CV-Suraj-Arya.pdf" target="_blank" target="_blank"
+                                class="btn-glow">Download CV</a>
+                            <a href="#contact" class="btn-outline-glow">Contact Me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image text-center">
+                        <img src="/assests/Suraj Arya.jpg" alt="Suraj Arya" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="about-card" data-aos="fade-up">
+                        <p class="lead">
+                            I am currently pursuing a B.Tech in Computer Science and Engineering (2nd year) at NSIT
+                            Patna, after completing my Diploma in the same field from Ambekeshwar Institute of
+                            Technology, Lucknow. My passion lies in the intersection of technology, design, and
+                            innovation.
+                        </p>
+                        <p>
+                            With expertise in programming languages like Python, Java, HTML, CSS, and JavaScript, I
+                            create digital experiences
+                            that are both useful and visually appealing. I'm also interested in web development, graphic
+                            design, photography, and new technologies like AI and machine learning.
+                        </p>
 
-    <section class="about" id="about">
-        <div class="about-content" data-aos="fade-down">
-            <h1>Hey, I am <span>Suraj</span></h1> <br> <br>
-            <p>I am a Diploma student in Computer Science and Engineering at Ambekeshwar Institute of Technology,
-                Lucknow, passionate about technology, graphic design, and event management, skilled in programming (C,
-                Java, HTML, CSS, Python), Adobe Photoshop, and interested in photography, gaming and creative projects.
-            </p>
+                        <p>
+                            When I'm not coding, I enjoy learning about the latest tech, making videos for my YouTube
+                            channel, or working on fun and creative projects.
+                        </p>
 
-            <div class="social-icons">
-                <a href="https://github.com/officialsurajarya" target="_blank"><i class='bx bxl-github'></i></a>
-                <a href="https://www.instagram.com/officialsurajarya/" target="_blank"><i
-                        class='bx bxl-instagram-alt'></i></i></a>
-                <a href="https://www.facebook.com/OfficialSurajArya" target="_blank"><i
-                        class='bx bxl-facebook-circle'></i></a>
-                <a href="https://www.linkedin.com/in/suraj-arya/?originalSubdomain=in" target="_blank"><i
-                        class='bx bxl-linkedin-square'></i></a>
-                <a href="https://t.me/officialsurajarya" target="_blank"><i class='bx bxl-telegram'></i></a>
-                <a href="https://wa.me/8427714353" target="_blank"><i class='bx bxl-whatsapp'></i></a>
-
+                    </div>
+                </div>
             </div>
-
-            <div class="btn-group">
-                <a href="Assests/CV-Suraj-Arya.pdf" target="_blank" class="btn">Download CV</a>
-                <a href="#contact" class="btn">Contact</a>
-            </div>
-        </div>
-
-        <div class="about-img" data-aos="fade-up">
-            <img src="Assests/About-Img.jpg" alt="logo">
         </div>
     </section>
 
-    <!-- Skills Section ---------------------------------------------------------------------------------------->
-
-    <section class="skills" id="skills">
-        <div class="main-text" data-aos="fade-down">
-            <h2 class="heading">Skills</h2>
-        </div>
-
-        <div class="skill-main">
-
-            <div class="skill-left">
-                <h3 data-aos="fade-down">Technical Skills</h3>
-
-                <div class="skill-bar" data-aos="flip-down">
-                    <div class="info">
-                        <p>Python</p>
-                        <p>64%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="python"></span>
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Skills</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <h5>Python</h5>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 64%"></div>
+                        </div>
+                        <small>64%</small>
                     </div>
                 </div>
-
-                <div class="skill-bar" data-aos="flip-down">
-                    <div class="info">
-                        <p>Java</p>
-                        <p>45%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="java"></span>
-                    </div>
-                </div>
-
-                <div class="skill-bar" data-aos="flip-down">
-                    <div class="info">
-                        <p>Html</p>
-                        <p>82%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="html"></span>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-java"></i>
+                        </div>
+                        <h5>Java</h5>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 45%"></div>
+                        </div>
+                        <small>45%</small>
                     </div>
                 </div>
-
-                <div class="skill-bar" data-aos="flip-down">
-                    <div class="info">
-                        <p>CSS</p>
-                        <p>53%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="css"></span>
-                    </div>
-                </div>
-
-                <div class="skill-bar" data-aos="flip-down">
-                    <div class="info">
-                        <p>JavaScript</p>
-                        <p>25%</p>
-                    </div>
-                    <div class="bar">
-                        <span class="js"></span>
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <h5>HTML/CSS</h5>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 82%"></div>
+                        </div>
+                        <small>82%</small>
                     </div>
                 </div>
-
+                <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-card">
+                        <div class="skill-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h5>JavaScript</h5>
+                        <div class="progress mt-3">
+                            <div class="progress-bar" style="width: 25%"></div>
+                        </div>
+                        <small>25%</small>
+                    </div>
+                </div>
             </div>
-            <div class="skill-down">
-                <h3 data-aos="fade-up">Professional Skills</h3>
-                <div class="professional">
+        </div>
+    </section>
 
-                    <div class="box" data-aos="zoom-in-up">
-                        <div class="circle" data-dots="60" data-percent="85"></div>
-                        <div class="text">
-                            <big>85%</big>
-                            <small>Leadership</small>
-                        </div>
-                    </div>
-
-                    <div class="box" data-aos="zoom-in-up">
-                        <div class="circle" data-dots="60" data-percent="70"></div>
-                        <div class="text">
-                            <big>70%</big>
-                            <small>Team Work</small>
-                        </div>
-                    </div>
-
-                    <div class="box" data-aos="zoom-in-up">
-                        <div class="circle" data-dots="60" data-percent="80"></div>
-                        <div class="text">
-                            <big>80%</big>
-                            <small>Graphic Design</small>
-                        </div>
-                    </div>
-
-                    <div class="box" data-aos="zoom-in-up">
-                        <div class="circle" data-dots="60" data-percent="90"></div>
-                        <div class="text">
-                            <big>90%</big>
-                            <small>Communication</small>
+    <!-- Projects Section -->
+    <section class="section" id="projects">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Projects & Channel</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-card">
+                        <img src="assests/Skatter.jpg" alt="Skatter Landing" class="project-image">
+                        <div class="project-info">
+                            <h4 class="project-title">Skatter Landing Page</h4>
+                            <a href="https://skatter-site-by-bootstrap-officialsurajarya.vercel.app/" target="_blank"
+                                class="btn-glow">
+                                <i class="fas fa-external-link-alt"></i> Visit Site
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section ------------------------------------------------------------------------------------->
-
-    <section class="education" id="education">
-        <h2 class="heading" data-aos="fade-down">Education</h2>
-        <div class="timeline-items" data-aos="fade-down">
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2021</div>
-                <div class="timeline-content-wrapper" data-aos="zoom-in-up">
-                    <div class="timeline-content">
-                        <h3>High School</h3>
-                        <p>Successfully completed high school education, acquiring foundational knowledge and skills
-                            essential for higher studies and personal growth.</p>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="project-card">
+                        <img src="assests/Selling.jpg" alt="E-Commerce Store" class="project-image">
+                        <div class="project-info">
+                            <h4 class="project-title">E-Commerce Store</h4>
+                            <a href="https://selling-site-five.vercel.app/" target="_blank" class="btn-glow">
+                                <i class="fas fa-external-link-alt"></i> Visit Store
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2022-25</div>
-                <div class="timeline-content-wrapper" data-aos="zoom-in-down">
-                    <div class="timeline-content">
-                        <h3>Diploma in CSE</h3>
-                        <p>Pursued a Diploma in Computer Science Engineering, focusing on core concepts such as
-                            programming,
-                            data structures, and system design, along with practical applications in technology and
-                            innovation.</p>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-card">
+                        <img src="assests/Spotify.jpg" alt="Spotify-Clone" class="project-image">
+                        <div class="project-info">
+                            <h4 class="project-title">Spotify Clone</h4>
+                            <a href="https://vercel.com/suraj-aryas-projects?repo=https://github.com/officialsurajarya/Spotify-Clone"
+                                target="_blank" class="btn-glow">
+                                <i class="fas fa-external-link-alt"></i> Visit App
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">2025-28</div>
-                <div class="timeline-content-wrapper" data-aos="zoom-in-up">
-                    <div class="timeline-content">
-                        <h3>Bachelor's in CSE</h3>
-                        <p>Currently enrolled in a Bachelor's program in Computer Science Engineering, deepening my
-                            understanding of advanced topics in software development, artificial intelligence, and
-                            network systems.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-date">Job Aspirations</div>
-                <div class="timeline-content-wrapper" data-aos="zoom-in-down">
-                    <div class="timeline-content">
-                        <h3>Future Goals</h3>
-                        <p>Aiming to secure a position in a reputable tech company where I can apply my skills in
-                            software development, contribute to innovative projects, and continue learning in a dynamic
-                            environment.</p>
+                <div class="col-lg-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <img src="/assests/Youtube.jpg" alt="YouTube Channel" class="project-image">
+                        <div class="project-info">
+                            <h4 class="project-title">YouTube Channel</h4>
+                            <a href="https://www.youtube.com/@officialsurajarya" target="_blank" class="btn-glow">
+                                <i class="fab fa-youtube"></i> Visit Channel
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section ---------------------------------------------------->
-
-    <section class="services" id="services">
-        <h2 class="heading" data-aos="fade-down">My Projects & Channel</h2>
-
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-
-                <!-- Instagram Clone -->
-                <div class="swiper-slide">
-                    <iframe src="https://insta-clone-fawn.vercel.app/" class="project-iframe" loading="lazy"
-                        allowfullscreen></iframe>
-                    <a href="https://insta-clone-fawn.vercel.app/" target="_blank" class="visit-btn">
-                        <i class="fas fa-external-link-alt"></i> Visit App
-                    </a>
-                </div>
-
-                <!-- YouTube Channel -->
-                <div class="swiper-slide youtube-slide">
-                    <div class="youtube-preview">
-                        <img src="/Assests/Yt.jpg" alt="YouTube Channel Preview" />
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Contact Me</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="contact-form" data-aos="fade-up">
+                        <form action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="7274fb69-f8a0-43ea-b3ee-50bd672e6676">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" name="Name" class="form-control" placeholder="Full Name"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" name="Email" class="form-control" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="tel" name="Phone" class="form-control" placeholder="Phone Number"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="Subject" class="form-control" placeholder="Subject"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <textarea name="Message" class="form-control" rows="6" placeholder="Your Message"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="text-center mt-2">
+                                <button type="submit" class="btn-glow">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </div>
+                        </form>
                     </div>
-                    <a href="https://www.youtube.com/@officialsurajarya" target="_blank" class="visit-btn">
-                        <i class="fab fa-youtube"></i> Visit Channel
-                    </a>
-                </div>
-
-                <!-- Skatter Landing Page -->
-                <div class="swiper-slide">
-                    <img src="/Assests/Scatter.png" alt="Skatter Landing Page Preview" class="project-image" />
-                    <a href="https://skatter-site-by-bootstrap-officialsurajarya.vercel.app/" target="_blank"
-                        class="visit-btn">
-                        <i class="fas fa-external-link-alt"></i> Visit Site
-                    </a>
-                </div>
-
-                <!-- E-Commerce Site -->
-                <div class="swiper-slide">
-                    <img src="/Assests/Selling.jpg" alt="E-Commerce Site Preview" class="project-image" />
-                    <a href="https://selling-site-five.vercel.app/" target="_blank" class="visit-btn">
-                        <i class="fas fa-external-link-alt"></i> Visit Store
-                    </a>
                 </div>
             </div>
-
-            <!-- Swiper Controls -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
-
-
-
-
-    <!-- Contact us Section -------------------------------->
-
-    <section class="contact" id="contact">
-        <h2 class="heading" data-aos="fade-down">Contact <span>Me</span></h2>
-
-        <form action="https://api.web3forms.com/submit" method="POST">
-            <div class="input-group">
-                <div class="input-box" data-aos="fade-down">
-                    <input type="hidden" name="access_key" value="7274fb69-f8a0-43ea-b3ee-50bd672e6676">
-                    <input type="text" name="Name" placeholder="Full Name" required>
-                    <input type="email" name="Email" placeholder="Email">
-                </div>
-                <div class="input-box" data-aos="fade-down">
-                    <input type="number" name="Phone Number" placeholder="Phone Number" required>
-                    <input type="text" name="Subject" placeholder="Subject" required>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-icons mb-4">
+                <a href="https://github.com/officialsurajarya" target="_blank" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/suraj-arya/" target="_blank" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/officialsurajarya/" target="_blank" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.youtube.com/@officialsurajarya" target="_blank" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <a href="https://www.facebook.com/OfficialSurajArya" target="_blank" aria-label="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://wa.me/8427714353" target="_blank" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://t.me/officialsurajarya" target="_blank" aria-label="Telegram">
+                    <i class="fab fa-telegram"></i>
+                </a>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <p class="textmb-0">
+                        &copy; 2025 Suraj Arya | All Rights Reserved | Made with <i class="fas fa-heart"
+                            style="color: var(--secondary-color);"></i> and AI
+                    </p>
                 </div>
             </div>
-
-            <div class="input-group-2" data-aos="fade-up">
-                <textarea name="Message" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-                <input type="submit" value="Send Message" class="btn" required>
-            </div>
-        </form>
-    </section>
-
-    <!-- Footer Section ----------------------------------->
-    <footer class="footer" data-aos="fade-up">
-        <div class="social">
-            <a href="https://github.com/officialsurajarya" target="_blank"><i class='bx bxl-github'></i></a>
-            <a href="https://www.instagram.com/officialsurajarya/" target="_blank"><i
-                    class='bx bxl-instagram-alt'></i></i></a>
-            <a href="https://www.facebook.com/OfficialSurajArya" target="_blank"><i
-                    class='bx bxl-facebook-circle'></i></a>
-            <a href="https://www.linkedin.com/in/suraj-arya/?originalSubdomain=in target=" _blank""><i
-                    class='bx bxl-linkedin-square'></i></a>
-            <a href="https://www.youtube.com/@officialsurajarya" target="_blank"><i class='bx bxl-youtube'></i></a>
-            <a href="https://wa.me/8427714353" target="_blank"><i class='bx bxl-whatsapp'></i></a>
-            <a href="https://t.me/officialsurajarya" target="_blank"><i class='bx bxl-telegram'></i></a>
-            <a href="https://t.me/All_Latest_App" target="_blank"><i class='bx bx-smile'></i></a>
         </div>
-
-        <div class="viewcount">
-            <table>
-                <tr>
-                    <td>
-                        <h4>You are Visitor</h4>
-                    </td>
-                    <td><img src="https://profile-counter.glitch.me/Siteview/count.svg" alt="vistor count" height="20">
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <p class="copyright">
-            &copy; 2025 Suraj Arya | All Rights Reserved
-        </p>
     </footer>
 
-    <!-- Go to Top Button---------------------------- -->
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
 
-    <a id="button">
-        <i class='bx bxs-chevrons-up'></i>
-    </a>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="script.js"></script>
-    <script>
-        AOS.init();
-    </script>
+
 </body>
 
 </html>

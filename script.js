@@ -1,262 +1,488 @@
-// script.js
-
-// ========== BACK TO TOP BUTTON ==========
-document.addEventListener("DOMContentLoaded", function () {
-    const backToTopButton = document.getElementById("button");
-
-    window.addEventListener("scroll", function () {
-        backToTopButton.classList.toggle("show", window.scrollY > 300);
-    });
-
-    backToTopButton.addEventListener("click", function (e) {
-        e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    });
+// Initialize AOS
+AOS.init({
+    duration: 1000,
+    once: true,
+    offset: 100
 });
 
-// ========== CIRCLES SKILL PROGRESS ==========
-document.addEventListener("DOMContentLoaded", function () {
-    const circles = document.querySelectorAll('.circle');
-    let animated = false;
+// Loading Animation
+window.addEventListener('load', function () {
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    setTimeout(() => {
+        loadingOverlay.classList.add('hidden');
+    }, 1000);
+});
 
-    function createCircles() {
-        circles.forEach(elem => {
-            const dots = +elem.getAttribute("data-dots") || 0;
-            const marked = +elem.getAttribute("data-percent") || 0;
-            const percent = Math.floor(dots * marked / 100);
-            const rotate = 360 / dots;
-            let points = "";
+// Typing Animation
+const typingText = document.getElementById('typingText');
+const phrases = [
+    'Developer',
+    "YouTuber",
+    'Tech Enthusiast',
+    'Content Creator',
+    'Problem Solver',
+];
 
-            for (let i = 0; i < dots; i++) {
-                points += `<div class="points" style="--i:${i}; --rot:${rotate}deg"></div>`;
-            }
-            elem.innerHTML = points;
+let currentPhraseIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
 
-            const pointsMarked = elem.querySelectorAll('.points');
-            for (let i = 0; i < percent; i++) {
-                pointsMarked[i].classList.add('marked');
-            }
-        });
+function typeWriter() {
+    const currentPhrase = phrases[currentPhraseIndex];
+
+    if (isDeleting) {
+        typingText.textContent = currentPhrase.substring(0, currentCharIndex - 1);
+        currentCharIndex--;
+
+        if (currentCharIndex === 0) {
+            isDeleting = false;
+            currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+            setTimeout(typeWriter, 500);
+            return;
+        }
+    } else {
+        typingText.textContent = currentPhrase.substring(0, currentCharIndex + 1);
+        currentCharIndex++;
+
+        if (currentCharIndex === currentPhrase.length) {
+            isDeleting = true;
+            setTimeout(typeWriter, 2000);
+            return;
+        }
     }
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !animated) {
-                createCircles();
-                animated = true;
-                observer.disconnect();
-            }
-        });
-    }, { threshold: 0.3 });
+    setTimeout(typeWriter, isDeleting ? 50 : 100);
+}
 
-    const skillSection = document.querySelector('#skills');
-    if (skillSection) observer.observe(skillSection);
+// Start typing animation
+typeWriter();
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });
 
-// ========== NAVBAR TOGGLE ==========
-const menuIcon = document.querySelector('#menu-icon');
-const navbar = document.querySelector('.navbar');
+// Navbar scroll effect
+window.addEventListener('scroll', function () {
+    const navbar = document.querySelector('.navbar');
+    const scrollTop = document.getElementById('scrollTop');
 
-menuIcon.addEventListener('click', () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
+    if (window.scrollY > 100) {
+        navbar.style.background = 'rgba(10, 10, 10, 0.95)';
+        scrollTop.classList.add('show');
+    } else {
+        navbar.style.background = 'rgba(26, 26, 26, 0.95)';
+        scrollTop.classList.remove('show');
+    }
 });
 
-// ========== NAVBAR ACTIVE ON SCROLL ==========
-window.addEventListener('scroll', () => {
+// Scroll to top functionality
+document.getElementById('scrollTop').addEventListener('click', function () {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Active navigation link
+window.addEventListener('scroll', function () {
     const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('header nav a');
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 
-    sections.forEach(sec => {
-        let top = window.scrollY;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`header nav a[href*=${id}]`);
-            if (activeLink) activeLink.classList.add('active');
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= sectionTop - 200) {
+            current = section.getAttribute('id');
         }
     });
 
-    document.querySelector('header').classList.toggle('sticky', window.scrollY > 100);
-
-    menuIcon.classList.remove('bx-x');
-    navbar.classList.remove('active');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
 });
 
-// ========== SWIPER ==========
-const swiper = new Swiper('.mySwiper', {
-    slidesPerView: 1,
-    spaceBetween: 30,
-    loop: true,
-    autoplay: {
-        delay: 5000,
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    breakpoints: {
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 1 },
-        1024: { slidesPerView: 2 },
-    },
-    grabCursor: true,
+// Form submission
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Show loading state
+    const submitBtn = document.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+    submitBtn.disabled = true;
+
+    // Simulate form submission
+    setTimeout(() => {
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+            this.reset();
+        }, 2000);
+    }, 2000);
 });
 
-document.querySelector('.mySwiper').addEventListener('mouseenter', () => swiper.autoplay.stop());
-document.querySelector('.mySwiper').addEventListener('mouseleave', () => swiper.autoplay.start());
+// Parallax effect for hero section
+window.addEventListener('scroll', function () {
+    const scrolled = window.pageYOffset;
+    const parallax = document.querySelector('.hero-section');
+    const speed = scrolled * 0.5;
 
-document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') swiper.slidePrev();
-    else if (e.key === 'ArrowRight') swiper.slideNext();
+    if (parallax) {
+        parallax.style.transform = `translateY(${speed}px)`;
+    }
 });
+
+// Skill progress animation
+const observerOptions = {
+    threshold: 0.7,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function (entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const progressBars = entry.target.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 2s ease-in-out';
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+    });
+}, observerOptions);
+
+// Observe skills section
+const skillsSection = document.getElementById('skills');
+if (skillsSection) {
+    observer.observe(skillsSection);
+}
+
+// Add cursor glow effect
+document.addEventListener('mousemove', function (e) {
+    const cursor = document.createElement('div');
+    cursor.className = 'cursor-glow';
+    cursor.style.cssText = `
+                position: fixed;
+                top: ${e.clientY}px;
+                left: ${e.clientX}px;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, rgba(0, 255, 255, 0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 9999;
+                transform: translate(-50%, -50%);
+                animation: cursorFade 0.5s ease-out forwards;
+            `;
+
+    document.body.appendChild(cursor);
+
+    setTimeout(() => {
+        cursor.remove();
+    }, 500);
+});
+
+// Add CSS for cursor animation
+const style = document.createElement('style');
+style.textContent = `
+            @keyframes cursorFade {
+                0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+            }
+            
+            .navbar-nav .nav-link.active {
+                color: var(--primary-color) !important;
+            }
+            
+            .navbar-nav .nav-link.active::after {
+                width: 100%;
+            }
+        `;
+document.head.appendChild(style);
+
+// Add particle effect to hero section
+function createParticles() {
+    const heroSection = document.querySelector('.hero-section');
+    const particlesContainer = document.createElement('div');
+    particlesContainer.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1;
+            `;
+
+    for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.style.cssText = `
+                    position: absolute;
+                    width: 2px;
+                    height: 2px;
+                    background: var(--primary-color);
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: float ${3 + Math.random() * 4}s ease-in-out infinite;
+                    animation-delay: ${Math.random() * 2}s;
+                    opacity: ${0.3 + Math.random() * 0.7};
+                `;
+        particlesContainer.appendChild(particle);
+    }
+
+    heroSection.appendChild(particlesContainer);
+}
+
+// Initialize particles
+createParticles();
+
+// Mobile menu enhancement
+const navbarToggler = document.querySelector('.navbar-toggler');
+const navbarCollapse = document.querySelector('.navbar-collapse');
+
+navbarToggler.addEventListener('click', function () {
+    this.classList.toggle('active');
+});
+
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
+    link.addEventListener('click', function () {
+        if (window.innerWidth <= 992) {
+            navbarCollapse.classList.remove('show');
+            navbarToggler.classList.remove('active');
+        }
+    });
+});
+
+// Add glitch effect to title on hover
+const heroTitle = document.querySelector('.hero-content h1');
+if (heroTitle) {
+    heroTitle.addEventListener('mouseenter', function () {
+        this.style.animation = 'glitch 0.5s ease-in-out';
+    });
+
+    heroTitle.addEventListener('animationend', function () {
+        this.style.animation = '';
+    });
+}
+
+// Add glitch animation CSS
+const glitchStyle = document.createElement('style');
+glitchStyle.textContent = `
+            @keyframes glitch {
+                0%, 100% { transform: translate(0); }
+                10% { transform: translate(-2px, 2px); }
+                20% { transform: translate(2px, -2px); }
+                30% { transform: translate(-2px, -2px); }
+                40% { transform: translate(2px, 2px); }
+                50% { transform: translate(-2px, 2px); }
+                60% { transform: translate(2px, -2px); }
+                70% { transform: translate(-2px, -2px); }
+                80% { transform: translate(2px, 2px); }
+                90% { transform: translate(-2px, 2px); }
+            }
+        `;
+document.head.appendChild(glitchStyle);
+
+// Add success message for contact form
+function showSuccessMessage() {
+    const successAlert = document.createElement('div');
+    successAlert.className = 'alert alert-success mt-3';
+    successAlert.innerHTML = `
+                <i class="fas fa-check-circle"></i> 
+                Thank you! Your message has been sent successfully. I'll get back to you soon.
+            `;
+    successAlert.style.cssText = `
+                background: rgba(0, 255, 136, 0.1);
+                border: 1px solid var(--accent-color);
+                color: var(--accent-color);
+                border-radius: 10px;
+            `;
+
+    document.querySelector('.contact-form').appendChild(successAlert);
+
+    setTimeout(() => {
+        successAlert.remove();
+    }, 5000);
+}
+
+console.log('🚀 AI-Inspired Portfolio Loaded Successfully!');
+console.log('✨ Made with love by Suraj Arya');
+
+
 
 // ========== FORM VALIDATION ==========
+function sanitizeInput(value) {
+    return value
+        .replace(/[^\x00-\x7F]/g, '')
+        .replace(/[^a-zA-Z0-9\s,'-]/g, '')
+        .replace(/\s{2,}/g, ' ')
+        .trimStart();
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
-    const nameInput = form.querySelector("input[name='Name']");
-    const emailInput = form.querySelector("input[name='Email']");
-    const phoneInput = form.querySelector("input[name='Phone Number']");
-    const subjectInput = form.querySelector("input[name='Subject']");
-    const messageInput = form.querySelector("textarea[name='Message']");
+function showError(input, message) {
+    let error = input.nextElementSibling;
+    if (!error || !error.classList.contains('error-msg')) {
+        error = document.createElement('div');
+        error.className = 'error-msg text-danger small mt-1';
+        input.parentNode.appendChild(error);
+    }
+    error.textContent = message;
+    input.classList.add("is-invalid");
+    input.classList.remove("is-valid");
+}
 
-    // Capitalize and sanitize full name
+function clearError(input) {
+    let error = input.nextElementSibling;
+    if (error && error.classList.contains('error-msg')) {
+        error.textContent = '';
+    }
+    input.classList.remove("is-invalid");
+    input.classList.add("is-valid");
+}
+
+// Name field
+const nameInput = document.querySelector('input[name="Name"]');
+if (nameInput) {
     nameInput.addEventListener("input", function () {
-        this.value = this.value
-            .replace(/[^a-zA-Z\s'-]/g, "")
-            .replace(/\s{2,}/g, " ")
-            .trimStart();
+        this.value = this.value.replace(/[^a-zA-Z\s,'-]/g, '').replace(/\s{2,}/g, ' ').trimStart();
+        const words = this.value.split(" ").map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase());
+        this.value = words.join(" ");
 
-        this.value = this.value
-            .split(" ")
-            .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
-            .join(" ");
+        if (this.value.length < 3) {
+            showError(this, "Name must be at least 3 characters.");
+        } else {
+            clearError(this);
+        }
     });
+}
 
-    // Validate email format
+// Email field
+const emailInput = document.querySelector('input[name="Email"]');
+if (emailInput) {
     emailInput.addEventListener("input", function () {
-        const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
-        this.setCustomValidity(emailPattern.test(this.value) ? "" : "Invalid email format.");
+        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (!pattern.test(this.value)) {
+            showError(this, "Invalid email format.");
+        } else {
+            clearError(this);
+        }
     });
+}
 
-    // Phone: only digits, max 10, not starting with 0
+// Phone field
+// Phone number validation
+const phoneInput = document.querySelector('input[name="Phone"]');
+if (phoneInput) {
     phoneInput.addEventListener("input", function () {
-        let digits = this.value.replace(/\D/g, '');
-        if (digits.startsWith("0")) digits = digits.slice(1);
+        let digits = this.value.replace(/\D/g, ''); // remove non-digits
+
+        // Enforce max 10 digits
         if (digits.length > 10) digits = digits.slice(0, 10);
         this.value = digits;
-        this.setCustomValidity(digits.length === 10 ? "" : "Enter 10-digit valid phone number (not starting with 0).");
-    });
 
-    // Subject sanitization
-    subjectInput.addEventListener("input", function () {
-        this.value = this.value
-            .replace(/[^\x00-\x7F]/g, "")
-            .replace(/[^a-zA-Z0-9\s,'-]/g, "")
-            .replace(/\s{2,}/g, " ")
-            .trimStart();
-        this.setCustomValidity(this.value.length < 3 ? "Subject must be at least 3 characters." : "");
-    });
-
-    // Message required
-    messageInput.addEventListener("input", function () {
-        this.setCustomValidity(this.value.trim().length > 0 ? "" : "Message cannot be empty.");
-    });
-
-    // Final check before form submission
-    form.addEventListener("submit", function (e) {
-        if (!form.checkValidity()) {
-            e.preventDefault();
-            form.reportValidity();
+        // Validation
+        if (digits.length !== 10) {
+            showError(this, "Phone number must be exactly 10 digits.");
+        } else if (digits.startsWith("0")) {
+            showError(this, "Phone number cannot start with 0.");
+        } else {
+            clearError(this);
         }
     });
-});
+}
 
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
 
-    const fields = [
-        { name: "Name", validate: validateName, message: "Please enter a valid name." },
-        { name: "Email", validate: validateEmail, message: "Please enter a valid email." },
-        { name: "Phone Number", validate: validatePhone, message: "Enter 10-digit phone number (not starting with 0)." },
-        { name: "Subject", validate: value => value.trim().length >= 3, message: "Subject must be at least 3 characters." },
-        { name: "Message", validate: value => value.trim().length > 0, message: "Message cannot be empty." }
-    ];
-
-    // Add event listeners for all inputs
-    fields.forEach(({ name, validate, message }) => {
-        const input = form.querySelector(`[name="${name}"]`);
-        if (!input) return;
-
-        const errorSpan = createOrGetErrorSpan(input);
-
-        input.addEventListener("input", function () {
-            const isValid = validate(input.value);
-            toggleError(input, errorSpan, isValid, message);
-        });
+// Subject field
+const subjectInput = document.querySelector('input[name="Subject"]');
+if (subjectInput) {
+    subjectInput.addEventListener("input", function () {
+        this.value = sanitizeInput(this.value);
+        if (this.value.length < 3) {
+            showError(this, "Subject must be at least 3 characters.");
+        } else {
+            clearError(this);
+        }
     });
+}
 
-    // On form submit, validate all
-    form.addEventListener("submit", function (e) {
+// Message field
+const messageInput = document.querySelector('textarea[name="Message"]');
+if (messageInput) {
+    messageInput.addEventListener("input", function () {
+        this.value = sanitizeInput(this.value);
+        if (this.value.length < 10) {
+            showError(this, "Message must be at least 10 characters.");
+        } else {
+            clearError(this);
+        }
+    });
+}
+
+// Form validation on submit
+const contactForm = document.querySelector('form[action*="web3forms"]');
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
         let hasError = false;
 
-        fields.forEach(({ name, validate, message }) => {
-            const input = form.querySelector(`[name="${name}"]`);
-            if (!input) return;
+        if (nameInput && nameInput.value.length < 3) {
+            showError(nameInput, "Name must be at least 3 characters.");
+            hasError = true;
+        }
 
-            const errorSpan = createOrGetErrorSpan(input);
-            const isValid = validate(input.value);
+        const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        if (emailInput && !pattern.test(emailInput.value)) {
+            showError(emailInput, "Invalid email format.");
+            hasError = true;
+        }
 
-            toggleError(input, errorSpan, isValid, message);
+        if (phoneInput) {
+            const digits = phoneInput.value;
+            if (digits.length !== 10) {
+                showError(phoneInput, "Phone number must be exactly 10 digits.");
+                hasError = true;
+            } else if (digits.startsWith("0")) {
+                showError(phoneInput, "Phone number cannot start with 0.");
+                hasError = true;
+            } else {
+                clearError(phoneInput);
+            }
+        }
 
-            if (!isValid) hasError = true;
-        });
 
-        if (hasError) e.preventDefault();
+        if (subjectInput && subjectInput.value.length < 3) {
+            showError(subjectInput, "Subject must be at least 3 characters.");
+            hasError = true;
+        }
+
+        if (messageInput && messageInput.value.length < 10) {
+            showError(messageInput, "Message must be at least 10 characters.");
+            hasError = true;
+        }
+
+        if (hasError) {
+            e.preventDefault();
+            const firstInvalid = contactForm.querySelector(".is-invalid");
+            if (firstInvalid) firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
     });
-
-    // Utility Functions
-    function toggleError(input, errorSpan, isValid, message) {
-        if (isValid) {
-            input.style.borderColor = "var(--main-color)";
-            errorSpan.textContent = "";
-            errorSpan.style.display = "none";
-        } else {
-            input.style.borderColor = "red";
-            errorSpan.textContent = message;
-            errorSpan.style.display = "block";
-        }
-    }
-
-    function createOrGetErrorSpan(input) {
-        let next = input.nextElementSibling;
-        if (!next || !next.classList.contains("error-message")) {
-            next = document.createElement("span");
-            next.className = "error-message";
-            input.insertAdjacentElement("afterend", next);
-        }
-        return next;
-    }
-
-    function validateName(value) {
-        return /^[a-zA-Z\s'-]{2,}$/.test(value.trim());
-    }
-
-    function validateEmail(value) {
-        return /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i.test(value.trim());
-    }
-
-    function validatePhone(value) {
-        const digits = value.replace(/\D/g, '');
-        return digits.length === 10 && !digits.startsWith("0");
-    }
-});
+}
