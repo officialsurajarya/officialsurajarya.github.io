@@ -1,9 +1,18 @@
 // Initialize AOS
 AOS.init({
-    duration: 1000,
     once: true,
     offset: 100
 });
+
+window.addEventListener('scroll', function () {
+    const scrollTop = document.getElementById('scrollTop');
+    if (window.scrollY > 100) {
+        scrollTop.classList.add('show');
+    } else {
+        scrollTop.classList.remove('show');
+    }
+});
+
 
 // Loading Animation
 window.addEventListener('load', function () {
