@@ -1,5 +1,4 @@
-
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -15,10 +14,12 @@
     --second-bg-color: #131313;
     --text-color: #fff;
     --main-color: #12f7ff;
-    --big-font:2.5rem;
-    --normal-font:2rem;
-    --h2-font:3rem;
+    --big-font: 2.5rem;
+    --normal-font: 2rem;
+    --h2-font: 3rem;
     --neon-box-shadow: 0 0 .5rem #12f7ff;
+    --swiper-theme-color: #12f7ff !important;
+    --swiper-navigation-size: 25px !important;
 }
 
 html {
@@ -45,6 +46,7 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 5;
+    height: 50px;
 }
 
 .logo {
@@ -136,15 +138,15 @@ span {
     position: relative;
     top: 3rem;
     width: 30vw;
-    border-radius:50%;
+    border-radius: 50%;
     box-shadow: 0 0 40px var(--main-color);
     transition: 0.3s ease-in-out;
 }
 
 .home-img img:hover {
     box-shadow: 0 0 25px var(--main-color),
-                0 0 35px var(--main-color),
-                0 0 55px var(--main-color);
+        0 0 35px var(--main-color),
+        0 0 55px var(--main-color);
 }
 
 .home-content p {
@@ -163,7 +165,7 @@ span {
     height: 4.5rem;
     background: transparent;
     border: 2px solid var(--main-color);
-    font-size:2.5rem;
+    font-size: 2.5rem;
     border-radius: 50%;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
@@ -182,7 +184,7 @@ span {
     padding: 1rem 2.8rem;
     background: var(--main-color);
     box-shadow: 0 0 25px var(--main-color);
-    border-radius:4rem;
+    border-radius: 4rem;
     font-size: 1.6rem;
     color: #080808;
     behavior: 2px solid transparent;
@@ -244,28 +246,33 @@ span {
 }
 
 @keyframes cursor {
-    to{
+    to {
         border-left: 2px solid var(--main-color);
     }
 }
 
 @keyframes words {
+
     0%,
     20% {
         content: "Developer";
     }
+
     21%,
     40% {
         content: "Youtuber";
     }
+
     41%,
     60% {
         content: "Designer";
     }
+
     61%,
     80% {
         content: "Developer";
     }
+
     81%,
     100% {
         content: "Content Creator";
@@ -273,6 +280,7 @@ span {
 }
 
 @keyframes typing {
+
     10%,
     15%,
     30%,
@@ -284,6 +292,7 @@ span {
     95% {
         width: 0;
     }
+
     5%,
     20%,
     25%,
@@ -342,15 +351,15 @@ section {
     position: relative;
     top: 3rem;
     width: 28vw;
-    border-radius:50%;
+    border-radius: 50%;
     box-shadow: 0 0 40px var(--main-color);
     transition: 0.3s ease-in-out;
 }
 
 .about-img img:hover {
     box-shadow: 0 0 25px var(--main-color),
-                0 0 35px var(--main-color),
-                0 0 55px var(--main-color);
+        0 0 35px var(--main-color),
+        0 0 55px var(--main-color);
 }
 
 .about-content p {
@@ -368,7 +377,7 @@ section {
     height: 4.5rem;
     background: transparent;
     border: 2px solid var(--main-color);
-    font-size:2.5rem;
+    font-size: 2.5rem;
     border-radius: 50%;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
@@ -387,7 +396,7 @@ section {
     padding: 1rem 2.8rem;
     background: var(--main-color);
     box-shadow: 0 0 25px var(--main-color);
-    border-radius:4rem;
+    border-radius: 4rem;
     font-size: 1.6rem;
     color: #131313;
     behavior: 2px solid transparent;
@@ -421,44 +430,44 @@ section {
     color: #131313;
 }
 
-    /* Skills Section --------------------------------------------- */
-.skills{
+/* Skills Section --------------------------------------------- */
+.skills {
     background-color: var(--bg-color);
 }
 
-.main-text{
+.main-text {
     width: 100%;
     text-align: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
 
-.skill-main{
+.skill-main {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 30px;
     grid-column-gap: 50px;
 }
 
-.skill-bar{
+.skill-bar {
     margin-bottom: 2.3rem;
 }
 
-.skill-main h3{
+.skill-main h3 {
     margin-bottom: 2rem;
     font-size: 4rem;
     text-align: center;
 }
 
-.skill-left .skill-bar .info{
+.skill-left .skill-bar .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 10px;
 }
 
-.skill-left .skill-bar .bar{
+.skill-left .skill-bar .bar {
     width: 100%;
     height: 10px;
     background-color: var(--text-color);
@@ -468,11 +477,11 @@ section {
 }
 
 
-.skill-bar .info p{
+.skill-bar .info p {
     font-size: 2rem;
 }
 
-.skill-bar .bar span{
+.skill-bar .bar span {
     width: 50%;
     height: 100%;
     position: absolute;
@@ -482,27 +491,27 @@ section {
     box-shadow: var(--neon-box-shadow);
 }
 
-.skill-bar .bar .python{
+.skill-bar .bar .python {
     width: 64%;
     animation: python 2s;
 }
 
-.skill-bar .bar .java{
+.skill-bar .bar .java {
     width: 45%;
     animation: java 3s;
 }
 
-.skill-bar .bar .html{
+.skill-bar .bar .html {
     width: 82%;
     animation: html 3s;
 }
 
-.skill-bar .bar .css{
+.skill-bar .bar .css {
     width: 53%;
     animation: css 4s;
 }
 
-.skill-bar .bar .js{
+.skill-bar .bar .js {
     width: 25%;
     animation: js 4s;
 }
@@ -510,24 +519,24 @@ section {
 
 /* Right */
 
-.professional{
+.professional {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.box{
+.box {
     margin: 10px 0;
     flex: 1 1 15rem;
     position: relative;
 }
 
-.box .text{
+.box .text {
     text-align: center;
     color: #fff;
     font-size: 2rem;
 }
 
-.box .text big{
+.box .text big {
     color: white;
     font: 400;
     letter-spacing: 1px;
@@ -537,12 +546,12 @@ section {
     transform: translate(-50%, -50%);
 }
 
-.box .text small{
+.box .text small {
     display: block;
     font-weight: 600;
 }
 
-.circle{
+.circle {
     width: 100%;
     height: 120px;
     display: flex;
@@ -550,27 +559,27 @@ section {
     align-items: center;
 }
 
-.circle .points{
+.circle .points {
     width: 2px;
     height: 10px;
     background-color: var(--bg-color);
     position: absolute;
     border-radius: 3px;
     transform: rotate(calc(var(--i)*var(--rot))) translateY(-45px);
-    
+
 }
 
-.points.marked{
+.points.marked {
     animation: glow .4s linear forwards;
-        animation-delay: calc(var(--i)*0.02s);
+    animation-delay: calc(var(--i)*0.02s);
 }
 
-    /* Education Section -------------------------------------*/
+/* Education Section -------------------------------------*/
 
 .heading {
     font-size: 8rem;
     text-align: center;
-    margin: 5rem 0;    
+    margin: 5rem 0;
 }
 
 .education {
@@ -623,7 +632,7 @@ section {
     width: 21px;
     background-color: var(--main-color);
     box-shadow: 0 0 25px var(--main-color),
-                0 0 25px var(--main-color);
+        0 0 25px var(--main-color);
     position: absolute;
     left: calc(50% - 8.9px);
     border-radius: 50%;
@@ -631,7 +640,7 @@ section {
 }
 
 .timeline-date {
-    font-size:20px;
+    font-size: 20px;
     font-weight: 800;
     color: #fff;
     margin: 6px 0 15px;
@@ -640,7 +649,7 @@ section {
 .timeline-content {
     background-color: var(--bg-color);
     border: 3px solid var(--main-color);
-    padding: 30px 50px ;
+    padding: 30px 50px;
     border-radius: 4rem;
     box-shadow: 0 0 10px var(--main-color);
     cursor: pointer;
@@ -667,89 +676,237 @@ section {
 }
 
 /* Service section-------------------------------- */
-
 .services {
-    background-color: var(--bg-color);
-    color: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
 }
 
-
-.services h2 {
-    margin-bottom: 5rem;
-    color: #fff;
+.heading {
+    text-align: center;
+    font-size: var(--h2-font);
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: var(--neon-box-shadow);
+    position: relative;
 }
 
-.services-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 4rem;
+.heading::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: var(--main-color);
+    border-radius: 2px;
+    box-shadow: var(--neon-box-shadow);
 }
 
-.service-box {
-    background-color: var(--main-color);
-    color: black;
-    height: 300px;
-    border-radius: 3rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
+.swiper-slide {
+    background: var(--second-bg-color);
+    border: 1px solid var(--main-color);
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: var(--neon-box-shadow);
+    transition: 0.3s ease;
 }
 
-.service-box:hover {
-    background-color: #fff;
-    color: black;
-    border: 5px solid var(--main-color);
-    transform: scale(1.02);
-
+.swiper-slide:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 1rem var(--main-color);
 }
 
-.service-box .service-info{
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    min-height: 200px;
-    justify-content: left;
-    padding: 5rem 5rem;
-}
-
-.service-info h4 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    padding-bottom: 1rem;
-}
-
-.service-info p {
-    font-size: 1.6rem;
+.project-title {
+    font-size: var(--big-font);
+    margin: 15px 0;
     font-weight: 600;
-    min-height: 100px;
-    line-height: 1.7;
 }
 
+.project-description {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+.visit-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: var(--main-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    box-shadow: var(--neon-box-shadow);
+}
+
+.visit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.project-icon {
+    font-size: 3rem;
+    color: var(--main-color);
+    margin-bottom: 15px;
+    text-shadow: var(--neon-box-shadow);
+}
+
+.youtube-preview,
+.youtube-preview img,
+.project-image,
+.project-iframe {
+    width: 100%;
+    height: 600px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    object-fit: cover;
+    object-position: top;
+}
+
+.youtube-preview:hover,
+.project-image:hover {
+    transform: scale(1.02);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background: var(--main-color);
+    border-radius: 50%;
+    width: 45px !important;
+    height: 55px !important;
+    margin-top: -25px;
+    box-shadow: 0 0 25px var(--main-color);
+    transition: transform 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 18px;
+    color: var(--bg-color);
+}
+
+.swiper-pagination {
+    position: relative;
+    top: 20px;
+    padding: 10px 0;
+}
+
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.5);
+    width: 12px;
+    height: 12px;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--main-color);
+    transform: scale(1.2);
+    box-shadow: var(--neon-box-shadow);
+}
+
+.project-iframe {
+    width: 100%;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.project-iframe:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: var(--big-font);
+    }
+
+    .project-description {
+        font-size: 1rem;
+    }
+
+    .youtube-preview,
+    .youtube-preview img,
+    .project-image,
+    .project-iframe {
+        height: 600px;
+        object-fit: cover;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .heading {
+        font-size: var(--normal-font);
+    }
+
+    .project-title {
+        font-size: var(--normal-font);
+    }
+
+    .visit-btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+    }
+}
 
 /* Contact us Section--------------------------------- */
-
 .contact {
     background-color: var(--second-bg-color);
+    padding: 5rem 0;
 }
 
 .contact h2 {
     margin-bottom: 3rem;
     color: #fff;
+    text-align: center;
+    font-size: var(--h2-font);
 }
 
-.contact form{
+.contact h2 span {
+    color: var(--main-color);
+}
+
+.contact form {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 3rem;
     margin: 5rem auto;
     text-align: center;
+    max-width: 80rem;
+    padding: 0 2rem;
+}
+
+.contact form .input-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
 }
 
 .contact form .input-box {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex: 1;
 }
 
 .contact form .input-box input,
@@ -765,24 +922,70 @@ section {
     resize: none;
 }
 
-.contact form .btn {
-    margin-top: 2rem;
+.contact form .input-box input::placeholder,
+.contact form textarea::placeholder {
+    color: #999;
 }
 
+.contact form .input-group-2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-/* Remove Arrows from input-type number  */
+.btn {
+    display: inline-block;
+    padding: 1.5rem 3rem;
+    background-color: var(--main-color);
+    color: var(--bg-color);
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+
+/* Error message style */
+.error-message {
+    color: red;
+    font-size: 1.4rem;
+    margin-top: 4px;
+    display: none;
+    text-align: left;
+}
+
+/* Remove Arrows from input-type number */
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
-  }
+}
 
+@media (max-width: 768px) {
+    .contact form .input-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact form .input-box input,
+    .contact form textarea {
+        padding: 2rem;
+        font-size: 1.6rem;
+    }
+}
 
 /* Footer Section ------------------------------*/
 
@@ -796,7 +999,7 @@ input[type=number] {
 
 .footer .social {
     text-align: center;
-    /* padding-bottom: 20px; */ 
+    /* padding-bottom: 20px; */
     color: var(--main-color);
 }
 
@@ -830,8 +1033,10 @@ input[type=number] {
 }
 
 .viewcount table {
-    margin: auto; /* Center the table horizontally */
-    text-align: center; /* Center the content inside the table */
+    margin: auto;
+    /* Center the table horizontally */
+    text-align: center;
+    /* Center the content inside the table */
     border: 2px solid var(--main-color);
     border-radius: 10px;
 }
@@ -846,7 +1051,7 @@ input[type=number] {
 
 .viewcount img {
     vertical-align: middle;
-} 
+}
 
 .viewcount h4 {
     font-size: 1.5rem;
@@ -860,7 +1065,7 @@ input[type=number] {
     background-color: var(--main-color);
     width: 50px;
     height: 50px;
-    line-height:60px;
+    line-height: 60px;
     text-align: center;
     align-items: center;
     padding-top: 5px;
@@ -873,25 +1078,25 @@ input[type=number] {
     transform: scale(0.8);
     z-index: 1000;
     color: black;
-  }
-  
-  #button i{
-    font-size:32px;
-  }
-  
-  #button:hover {
+}
+
+#button i {
+    font-size: 32px;
+}
+
+#button:hover {
     color: var(--main-color);
     background: black;
     cursor: pointer;
     transform: scale(1.05);
     border: 3px solid var(--main-color);
     box-shadow: 0 0 5px 2px var(--main-color);
-  }
-  
-  #button.show {
+}
+
+#button.show {
     opacity: 1;
     transform: scale(1);
-  }
+}
 
 /* Scrollbar Design  */
 
@@ -914,7 +1119,7 @@ input[type=number] {
 
     .services-container {
         padding-bottom: 7rem;
-        grid-template-columns: repeat(2,1fr);
+        grid-template-columns: repeat(2, 1fr);
         margin: 0 5rem;
     }
 }
@@ -951,7 +1156,7 @@ input[type=number] {
     }
 
     .textimonials .wrapper {
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
     }
 
     .contact form {
@@ -982,7 +1187,7 @@ input[type=number] {
         width: 50%;
         padding: 1rem 3%;
         background: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(20px); 
+        backdrop-filter: blur(20px);
         border-bottom-left-radius: 2rem;
         border-left: 2px solid var(--main-color);
         border-bottom: 2px solid var(--main-color);
@@ -1014,7 +1219,7 @@ input[type=number] {
         margin-top: 1rem;
     }
 
-    .home-content p{
+    .home-content p {
         max-width: 600px;
         margin: 0 auto;
     }
@@ -1032,7 +1237,7 @@ input[type=number] {
         margin-top: 1rem;
     }
 
-    .about-content p{
+    .about-content p {
         max-width: 600px;
         margin: 0 auto;
     }
@@ -1046,7 +1251,18 @@ input[type=number] {
     }
 
     .services-container {
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        background: var(--main-color);
+        border-radius: 50%;
+        width: 35px !important;
+        height: 45px !important;
+        margin-top: -25px;
+        box-shadow: 0 0 25px var(--main-color);
+        transition: transform 0.3s ease;
     }
 }
 
@@ -1079,21 +1295,21 @@ input[type=number] {
         width: 30vh;
     }
 
-    .skill-main h3{
+    .skill-main h3 {
         font-size: 2.5rem;
     }
 
-    .skill-bar .info p{
+    .skill-bar .info p {
         font-size: 1.5rem;
     }
 
-    .box .text{
-    text-align: center;
-    color: #fff;
-    font-size: 2rem;
+    .box .text {
+        text-align: center;
+        color: #fff;
+        font-size: 2rem;
     }
 
-    .box .text small{
+    .box .text small {
         display: block;
         font-weight: 300;
         font-size: 1.7;
@@ -1105,56 +1321,62 @@ input[type=number] {
 /* Skills --------------------------------------------*/
 
 @keyframes python {
-    0%{
+    0% {
         width: 0%;
     }
-    100%{
+
+    100% {
         width: 64%;
     }
 }
 
 @keyframes java {
-    0%{
+    0% {
         width: 0%;
     }
-    100%{
+
+    100% {
         width: 45%;
     }
 }
 
 @keyframes html {
-    0%{
+    0% {
         width: 0%;
     }
-    100%{
+
+    100% {
         width: 82%;
     }
 }
 
 @keyframes css {
-    0%{
+    0% {
         width: 0%;
     }
-    100%{
+
+    100% {
         width: 53%;
     }
 }
 
 @keyframes js {
-    0%{
+    0% {
         width: 0%;
     }
-    100%{
+
+    100% {
         width: 25%;
     }
 }
 
 @keyframes glow {
-    0%{
+    0% {
         background: var(--bg-color);
         box-shadow: none;
     }
-    100%{
+
+    100% {
         background: var(--main-color);
         box-shadow: var(--neon-box-shadow);
     }

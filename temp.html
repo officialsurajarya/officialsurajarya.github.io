@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Projects & Channel</title>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        :root {
+            --bg-color: #080808;
+            --second-bg-color: #131313;
+            --text-color: #fff;
+            --main-color: #12f7ff;
+            --big-font: 2.5rem;
+            --normal-font: 2rem;
+            --h2-font: 3rem;
+            --neon-box-shadow: 0 0 .5rem #12f7ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            min-height: 100vh;
+            padding: 20px;
+            color: var(--text-color);
+        }
+
+        .services {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: var(--h2-font);
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-shadow: var(--neon-box-shadow);
+            position: relative;
+        }
+
+        .heading::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--main-color);
+            border-radius: 2px;
+            box-shadow: var(--neon-box-shadow);
+        }
+
+        .swiper-slide {
+            background: var(--second-bg-color);
+            border: 1px solid var(--main-color);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--neon-box-shadow);
+            transition: 0.3s ease;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .project-title {
+            font-size: var(--big-font);
+            margin: 15px 0;
+            font-weight: 600;
+        }
+
+        .project-description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--main-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: 0.3s ease;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            box-shadow: var(--neon-box-shadow);
+        }
+
+        .visit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 1rem var(--main-color);
+        }
+
+        .project-icon {
+            font-size: 3rem;
+            color: var(--main-color);
+            margin-bottom: 15px;
+            text-shadow: var(--neon-box-shadow);
+        }
+
+        .youtube-preview,
+        .youtube-preview img,
+        .project-image,
+        .project-iframe {
+            width: 100%;
+            height: 700px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        .youtube-preview:hover,
+        .project-image:hover {
+            transform: scale(1.02);
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            background: var(--main-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            margin-top: -25px;
+            box-shadow: var(--neon-box-shadow);
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            transform: scale(1.1);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 18px;
+            color: var(--bg-color);
+        }
+
+        .swiper-pagination {
+            position: relative;
+            top: 10px;
+            padding: 10px 0;
+        }
+
+        .swiper-pagination-bullet {
+            background: rgba(255, 255, 255, 0.5);
+            width: 12px;
+            height: 12px;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--main-color);
+            transform: scale(1.2);
+            box-shadow: var(--neon-box-shadow);
+        }
+
+        .project-iframe {
+            width: 100%;
+            border: none;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .project-iframe:hover {
+            transform: scale(1.02);
+        }
+
+        @media (max-width: 768px) {
+            .heading {
+                font-size: var(--big-font);
+            }
+
+            .project-description {
+                font-size: 1rem;
+            }
+
+            .youtube-preview,
+            .youtube-preview img,
+            .project-image,
+            .project-iframe {
+                height: 700px;
+                object-fit: cover;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: var(--normal-font);
+            }
+
+            .project-title {
+                font-size: var(--normal-font);
+            }
+
+            .visit-btn {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="services" id="services">
+        <h2 class="heading" data-aos="fade-down">My Projects & Channel</h2>
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <!-- Instagram Clone -->
+                <div class="swiper-slide">
+                    <iframe src="https://insta-clone-fawn.vercel.app/" class="project-iframe" loading="lazy"
+                        allowfullscreen></iframe>
+                    <a href="https://insta-clone-fawn.vercel.app/" target="_blank" class="visit-btn">
+                        <i class="fas fa-external-link-alt"></i> Visit App
+                    </a>
+                </div>
+
+                <!-- YouTube Channel -->
+                <div class="swiper-slide youtube-slide">
+                    <div class="youtube-preview">
+                        <img src="/Assests/Yt.jpg" alt="YouTube Channel Preview" />
+                    </div>
+                    <a href="https://www.youtube.com/@officialsurajarya" target="_blank" class="visit-btn">
+                        <i class="fab fa-youtube"></i> Visit Channel
+                    </a>
+                </div>
+
+                <!-- Skatter Landing Page -->
+                <div class="swiper-slide">
+                    <img src="/Assests/Scatter.png" alt="Skatter Landing Page Preview" class="project-image" />
+                    <a href="https://skatter-site-by-bootstrap-officialsurajarya.vercel.app/" target="_blank"
+                        class="visit-btn">
+                        <i class="fas fa-external-link-alt"></i> Visit Site
+                    </a>
+                </div>
+
+                <!-- E-Commerce Site -->
+                <div class="swiper-slide">
+                    <img src="/Assests/Selling.jpg" alt="E-Commerce Site Preview" class="project-image" />
+                    <a href="https://selling-site-five.vercel.app/" target="_blank" class="visit-btn">
+                        <i class="fas fa-external-link-alt"></i> Visit Store
+                    </a>
+                </div>
+            </div>
+
+            <!-- Swiper Controls -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+</body>
+
+</html>
