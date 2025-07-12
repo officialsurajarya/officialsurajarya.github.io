@@ -124,24 +124,31 @@ window.addEventListener('scroll', function () {
     });
 });
 
-// Form submission
-document.querySelector('form').addEventListener('submit', function (e) {
+document.querySelector('form').addEventListener('submit', async function (e) {
     e.preventDefault();
 
-    // Show loading state
-    const submitBtn = document.querySelector('button[type="submit"]');
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"]');
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
     submitBtn.disabled = true;
 
-    // Simulate form submission
-    setTimeout(() => {
+    const formData = new FormData(form);
+    const response = await fetch(form.action, {
+        method: form.method,
+        body: formData
+    });
+
+    if (response.ok) {
         submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            this.reset();
-        }, 2000);
+        form.reset();
+    } else {
+        submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed!';
+    }
+
+    setTimeout(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
     }, 2000);
 });
 
