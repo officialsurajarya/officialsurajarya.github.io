@@ -1,175 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Seamless Infinite Scroll</title>
+    <title>Merged — Scroll + Subscribe Animation</title>
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: sans-serif;
-            background-color: #0f0;
-            display: flex;
-            justify-content: center;
-            align-items: end;
-            height: 100vh;
-        }
+      /* ---------------- GLOBAL ---------------- */
+      body {
+        margin: 0;
+        padding: 0;
+        background: #00ff00; /* GREEN SCREEN BG */
+        overflow: hidden;
+        font-family: sans-serif;
+      }
 
-        .main {
-            background-color: #fff;
-            width: 100%;
-            overflow: hidden;
-            position: relative;
-            margin-top: 120px;
-            padding: 10px;
-        }
+      /* ---------------- SCROLL BAR (BOTTOM) ---------------- */
+      .main {
+        background-color: #fff;
+        width: 100%;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+      }
 
-        .scroll-wrapper {
-            display: flex;
-            width: max-content;
-            animation: scroll-left 15s linear infinite;
-            will-change: transform;
-        }
+      .scroll-wrapper {
+        display: flex;
+        width: max-content;
+        animation: scroll-left 15s linear infinite;
+      }
 
-        .box {
-            height: 50px;
-            background-color: white;
-            border-radius: 5px;
-            margin-right: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 10px;
-        }
+      .boxx {
+        height: 35px;
+        background-color: white;
+        border-radius: 5px;
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 10px;
+      }
 
-        .box img {
-            width: 50px;
-            height: 50px;
-            object-fit: contain;
-        }
+      .boxx img {
+        width: 35px;
+        height: 35px;
+        object-fit: contain;
+      }
 
-        .box h3 {
-            padding-left: 10px;
-            font-size: 1.3rem;
-            color: #333;
-        }
+      .boxx h3 {
+        padding-left: 5px;
+        font-size: 1.15rem;
+        color: #333;
+      }
 
-        .heading {
-            padding: 0 20px;
-            text-align: left;
-            color: white;
+      @keyframes scroll-left {
+        0% {
+          transform: translateX(0);
         }
-
-        @keyframes scroll-left {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-
-            100% {
-                transform: translate3d(-50%, 0, 0);
-            }
+        100% {
+          transform: translateX(-50%);
         }
+      }
+
+      /* ---------------- SUBSCRIBE CENTER ---------------- */
+      .sub-box {
+        position: absolute;
+        bottom: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        gap: 15px;
+        opacity: 0;
+        transition: 0.5s;
+      }
+
+      button {
+        border: none;
+        cursor: pointer;
+        padding: 12px 28px;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 30px;
+      }
+
+      #sub {
+        background: red;
+        color: #fff;
+        transform: scale(0.8);
+        opacity: 0;
+        transition: 0.4s;
+      }
+
+      #sub.subd {
+        background: #065fd4;
+      }
+
+      #check {
+        display: none;
+      }
+
+      #bell {
+        width: 52px;
+        height: 52px;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: 0.4s;
+      }
+
+      .hand {
+        width: 40px;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 0.3s, left 0.6s, top 0.6s;
+      }
+
+      /* LOGO TOP LEFT */
+      .logo {
+        width: 100px;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="main">
-        <div class="scroll-wrapper">
-            <!-- Set 1 -->
-            <div class="box">
-                <img src="assets/Website.png" alt="">
-                <h3>officialsurajarya.vercel.app</h3>
-            </div>
-            <div class="box">
-                <img src="assets/mail.png" alt="">
-                <h3>OfficialSurajArya@gmail.com</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Contact.png" alt="">
-                <h3>+918427714353</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Youtube.png" alt="">
-                <h3>@Mr.AryaTech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Insta.png" alt="">
-                <h3>@Mr.AryaTech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Facebook.png" alt="">
-                <h3>Mr. Arya Tech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Youtube.png" alt="">
-                <h3>@OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Telegram.png" alt="">
-                <h3>OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/X.png" alt="">
-                <h3>OfficialSurajAr</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Insta.png" alt="">
-                <h3>@OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Facebook.png" alt="">
-                <h3>OfficialSurajArya</h3>
-            </div>
-            <!-- For Smooth Scrolling  -->
-            <!-- Set 2 -->
-            <div class="box">
-                <img src="assets/Website.png" alt="">
-                <h3>officialsurajarya.vercel.app</h3>
-            </div>
-            <div class="box">
-                <img src="assets/mail.png" alt="">
-                <h3>OfficialSurajArya@gmail.com</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Contact.png" alt="">
-                <h3>+918427714353</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Youtube.png" alt="">
-                <h3>@Mr.AryaTech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Insta.png" alt="">
-                <h3>@Mr.AryaTech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Facebook.png" alt="">
-                <h3>Mr. Arya Tech</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Youtube.png" alt="">
-                <h3>@OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Telegram.png" alt="">
-                <h3>OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/X.png" alt="">
-                <h3>OfficialSurajAr</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Insta.png" alt="">
-                <h3>@OfficialSurajArya</h3>
-            </div>
-            <div class="box">
-                <img src="assets/Facebook.png" alt="">
-                <h3>OfficialSurajArya</h3>
-            </div>
-        </div>
+  <body>
+    <!-- LOGO -->
+    <img src="assets/Mr. Arya Tech.png" class="logo" />
+
+    <!-- SUBSCRIBE ANIMATION CENTER -->
+    <div class="sub-box" id="box">
+      <button id="sub">
+        <span id="txt">Subscribe</span>
+        <span id="check">✔</span>
+      </button>
+
+      <button id="bell">🔔</button>
     </div>
-</body>
 
+    <img src="assets/hand.png" class="hand" id="hand" />
+
+    <!-- BOTTOM SCROLLING BAR -->
+    <div class="main">
+      <div class="scroll-wrapper">
+        <!-- LIST x2 for seamless loop -->
+        <div class="boxx">
+          <img src="assets/Website.png" />
+          <h3>officialsurajarya.vercel.app</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/mail.png" />
+          <h3>OfficialSurajArya@gmail.com</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Contact.png" />
+          <h3>+918427714353</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Youtube.png" />
+          <h3>@Mr.AryaTech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Insta.png" />
+          <h3>@Mr.AryaTech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Facebook.png" />
+          <h3>Mr. Arya Tech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Youtube.png" />
+          <h3>@OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Telegram.png" />
+          <h3>OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/X.png" />
+          <h3>OfficialSurajAr</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Insta.png" />
+          <h3>@OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Facebook.png" />
+          <h3>OfficialSurajArya</h3>
+        </div>
+
+        <!-- Duplicate Set -->
+        <div class="boxx">
+          <img src="assets/Website.png" />
+          <h3>officialsurajarya.vercel.app</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/mail.png" />
+          <h3>OfficialSurajArya@gmail.com</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Contact.png" />
+          <h3>+918427714353</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Youtube.png" />
+          <h3>@Mr.AryaTech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Insta.png" />
+          <h3>@Mr.AryaTech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Facebook.png" />
+          <h3>Mr. Arya Tech</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Youtube.png" />
+          <h3>@OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Telegram.png" />
+          <h3>OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/X.png" />
+          <h3>OfficialSurajAr</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Insta.png" />
+          <h3>@OfficialSurajArya</h3>
+        </div>
+        <div class="boxx">
+          <img src="assets/Facebook.png" />
+          <h3>OfficialSurajArya</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+      function center(el) {
+        const r = el.getBoundingClientRect();
+        return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+      }
+
+      function moveHand(el) {
+        const p = center(el);
+        hand.style.left = p.x - 20 + "px";
+        hand.style.top = p.y - 20 + "px";
+      }
+
+      const box = document.getElementById("box");
+      const sub = document.getElementById("sub");
+      const txt = document.getElementById("txt");
+      const check = document.getElementById("check");
+      const bell = document.getElementById("bell");
+      const hand = document.getElementById("hand");
+
+      function wait(ms) {
+        return new Promise((r) => setTimeout(r, ms));
+      }
+
+      async function run() {
+        // reset
+        box.style.opacity = 0;
+        sub.style.opacity = 0;
+        sub.classList.remove("subd");
+        txt.textContent = "Subscribe";
+        check.style.display = "none";
+        bell.style.opacity = 0;
+        hand.style.opacity = 0;
+
+        await wait(400);
+
+        box.style.opacity = 1;
+        await wait(500);
+
+        sub.style.opacity = 1;
+        sub.style.transform = "scale(1)";
+        await wait(350);
+
+        hand.style.opacity = 1;
+        moveHand(sub);
+        await wait(700);
+
+        txt.textContent = "Subscribed";
+        sub.classList.add("subd");
+        check.style.display = "inline";
+        await wait(600);
+
+        bell.style.opacity = 1;
+        bell.style.transform = "scale(1)";
+        await wait(600);
+
+        moveHand(bell);
+        await wait(800);
+
+        bell.style.transform = "scale(1.2)";
+        await wait(300);
+        bell.style.transform = "scale(1)";
+
+        hand.style.opacity = 0;
+        box.style.opacity = 0;
+      }
+
+      async function loop() {
+        const start = Date.now();
+        await run();
+        const used = Date.now() - start;
+        setTimeout(loop, Math.max(0, 60000 - used)); // 60 sec loop
+      }
+
+      loop();
+    </script>
+  </body>
 </html>
